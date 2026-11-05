@@ -1,0 +1,28 @@
+# Build output
+build/
+*/build/
+**/build/
+
+# Gradle
+.gradle/
+
+# Machine-local configuration
+local.properties
+.tools/
+
+# IDE
+.idea/
+*.iml
+captures/
+
+# Native
+.externalNativeBuild/
+.cxx/
+
+# OS
+.DS_Store
+
+# Signing material (never commit real keys)
+*.jks
+*.keystore
+!debug.keystore

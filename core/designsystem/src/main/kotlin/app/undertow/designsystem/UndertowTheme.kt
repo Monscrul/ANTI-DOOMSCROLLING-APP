@@ -7,7 +7,7 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 
 private val DarkScheme = darkColorScheme(
-    primary = UndertowTokens.Ember,
+    primary = UndertowTokens.Frost,
     onPrimary = UndertowTokens.Ink,
     secondary = UndertowTokens.Depth,
     onSecondary = UndertowTokens.Paper,

@@ -1,4 +1,6 @@
-# Undertow — Implementation Plan (pre-approval, no code written)
+# Undertow — Implementation Plan
+
+> **Implementation update (8 November 2026):** The original inventory below is historical. The local app now builds in `store` and `personal` variants. Usage Access collection, daily storage, history, limits and reminders, manual entries, CSV export, deletion, diagnostics, and a glass-style UI are implemented. The `personal` variant adds opt-in accessibility scroll detection and a floating count overlay. Detected gestures are not verified video views. Firebase and social phases are deferred by user choice. Both variants build, pass lint, and the model and tracking unit tests pass. Live permission and overlay behavior still need a permitted installation and manual device check; the connected device rejected installation of the personal APK (`INSTALL_FAILED_USER_RESTRICTED`).
 
 > **Status:** Planning only. Nothing in this document has been implemented. No Gradle files, Kotlin sources, manifests, or resources exist yet.
 > **Working title:** *Undertow* (placeholder — see [§1.4](#14-naming-and-original-identity)). Package id placeholder: `app.undertow.tracker` — **must** be replaced with a domain you own before the first Play upload.

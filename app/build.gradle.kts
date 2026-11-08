@@ -20,6 +20,16 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
+    }
+
+    flavorDimensions += "distribution"
+    productFlavors {
+        create("store") { dimension = "distribution" }
+        create("personal") {
+            dimension = "distribution"
+            applicationIdSuffix = ".personal"
+        }
     }
 
     compileOptions {
@@ -37,10 +47,17 @@ android {
 dependencies {
     implementation(project(":core:designsystem"))
     implementation(project(":feature:home"))
+    implementation(project(":core:database"))
+    implementation(project(":core:datastore"))
+    implementation(project(":core:common"))
+    implementation(project(":core:model"))
+    implementation(project(":tracking:engine"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.room.ktx)
+    implementation(libs.work.runtime.ktx)
 
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)

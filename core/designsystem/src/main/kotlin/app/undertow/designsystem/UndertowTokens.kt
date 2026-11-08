@@ -16,5 +16,6 @@ object UndertowTokens {
     val PaperRaised = Color(0xFFE7E0D4)
     val Ember = Color(0xFFE2653B)
     val Depth = Color(0xFF2E7F86)
+    val Frost = Color(0xFF91DDD8)
     val Salt = Color(0xFF8FA6A8)
 }

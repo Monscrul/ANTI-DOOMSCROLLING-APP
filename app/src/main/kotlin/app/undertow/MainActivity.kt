@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import app.undertow.designsystem.UndertowTheme
-import app.undertow.navigation.UndertowNavHost
+import app.undertow.tracking.UsageTracker
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -17,9 +17,10 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
+        if (!UsageTracker(this).isPaused()) UsageTracker.schedule(this)
         setContent {
-            UndertowTheme {
-                UndertowNavHost()
+            UndertowTheme(darkTheme = true) {
+                UndertowApp()
             }
         }
     }

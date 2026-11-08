@@ -131,7 +131,6 @@ private fun Preferences.toUserPreferences(): UserPreferences {
         ?.mapNotNull { it.toIntOrNull() }
         ?.filter { it in 1..100 }
         ?.toSet()
-        ?.takeIf { it.isNotEmpty() }
         ?: UserPreferences.DEFAULT_ALERT_THRESHOLDS
 
     val trackedPackages = this[Keys.TRACKED_PACKAGES]

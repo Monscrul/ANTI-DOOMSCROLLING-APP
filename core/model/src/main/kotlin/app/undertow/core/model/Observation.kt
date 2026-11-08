@@ -33,6 +33,7 @@ data class Observation(
 }
 
 enum class ObservationType {
+    VIEW_SCROLLED,
     ACTIVITY_RESUMED,
     ACTIVITY_PAUSED,
     ACTIVITY_STOPPED,

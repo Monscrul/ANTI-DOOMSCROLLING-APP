@@ -8,6 +8,11 @@ import app.undertow.core.common.DateKey
 
 @Dao
 interface UsageLogDao {
+    @Query("SELECT COUNT(*) FROM usage_event WHERE type = 'VIEW_SCROLLED' AND atUtcMillis >= :fromUtcMillis AND atUtcMillis < :toUtcMillis")
+    suspend fun scrollCountIn(fromUtcMillis: Long, toUtcMillis: Long): Int
+
+    @Query("SELECT packageName, COUNT(*) AS count FROM usage_event WHERE type = 'VIEW_SCROLLED' AND atUtcMillis >= :fromUtcMillis AND atUtcMillis < :toUtcMillis GROUP BY packageName")
+    suspend fun scrollCountsByPackage(fromUtcMillis: Long, toUtcMillis: Long): List<PackageCount>
 
     /**
      * Returns one row id per event, `-1` for events the unique index already held.
@@ -43,6 +48,8 @@ interface UsageLogDao {
     @Query("DELETE FROM usage_event WHERE atUtcMillis < :beforeUtcMillis")
     suspend fun deleteEventsBefore(beforeUtcMillis: Long): Int
 }
+
+data class PackageCount(val packageName: String, val count: Int)
 
 @Dao
 interface SessionDao {
